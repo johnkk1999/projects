@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lab2 assignment</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    tags: 'all'
+  }
+};
+</script>
+<script type="text/javascript" async 
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+body > * {
+  max-width: 42em;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 7.5em;
+  padding-right: 7.5em;
+}
+pre, code {
+  max-width: 50em;
+  font-family: monospace;
+}
+pre.oct-code {
+  border: 1px solid Grey;
+  padding: 5px;
+}
+pre.oct-code-output {
+  margin-left: 2em;
+}
+span.comment {
+  color: ForestGreen;
+}
+span.keyword {
+  color: Blue;
+}
+span.string {
+  color: DarkOrchid;
+}
+footer {
+  margin-top: 2em;
+  font-size: 80%;
+}
+a, a:visited {
+  color: Blue;
+}
+h2 {
+  font-family: "Roboto Condensed", serif;
+  margin-top: 1.5em;
+}
+h2 a, h2 a:visited {
+  color: Black;
+}
+</style>
+
+</head>
+<body>
+<h1>Lab2 assignment</h1>
+
+
+<p>Code</p>
+
+<pre class="oct-code"><span class="comment">#</span>
+<span class="comment"># Program for unit step sequence</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the length of unit step sequence(N)= 10</span>
+<span class="comment">#</span>
+clc;
+N=input(<span class="string">'Enter the length of unit step sequence(N)= '</span>);
+n=0:1:N-1;
+y=ones(1,N);
+subplot(3,2,1);
+stem(n,y,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>)
+ylabel(<span class="string">'Amplitude'</span>)
+title(<span class="string">'Unit step sequence'</span>);
+<span class="comment">#</span>
+<span class="comment"># Program for unit ramp sequence</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the length of unit ramp sequence(N1)= 10</span>
+<span class="comment">#</span>
+N1=input(<span class="string">'Enter the length of unit ramp sequence(N1)= '</span>);
+n1=0:1:N1-1;
+y1=n1;
+subplot(3,2,2);
+stem(n1,y1,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Unit ramp sequence'</span>);
+<span class="comment">#</span>
+<span class="comment"># Program for sinusoidal sequence</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the length of sinusoidal sequence(N2) = 3</span>
+<span class="comment">#</span>
+N2=input(<span class="string">'Enter the length of sinusoidal sequence(N2)='</span>);
+n2=0:0.1:N2-1;
+y2=sin(2*pi*n2);
+subplot(3,2,3);
+stem(n2,y2,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Sinusoidal sequence'</span>);
+<span class="comment">#</span>
+<span class="comment"># Program for cosine sequence</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the length of the cosine sequence(N3) = 3</span>
+<span class="comment">#</span>
+N3=input(<span class="string">'Enter the length of the cosine sequence(N3)='</span>);
+n3=0:0.1:N3-1;
+y3=cos(2*pi*n3);
+subplot(3,2,4);
+stem(n3,y3,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Cosine sequence'</span>);
+<span class="comment">#</span>
+<span class="comment"># Program for exponential sequence</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the length of unit step sequence(N) = 10</span>
+<span class="comment">#</span>
+<span class="comment"># Enter the value of the exponential sequence(a) = 0.5</span>
+<span class="comment">#</span>
+N4=input(<span class="string">'Enter the length of the exponential sequence(N4)= '</span>);
+n4=0:1:N4-1;
+a=input(<span class="string">'Enter the value of the exponential sequence(a)='</span>);
+y4=exp(a*n4);
+subplot(3,2,5);
+stem(n4,y4,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Exponential sequence'</span>);
+<span class="comment">#</span>
+<span class="comment"># Program for unit impulse</span>
+<span class="comment">#</span>
+n=-3:1:3;
+y=[zeros(1,3),ones(1,1),zeros(1,3)];
+subplot(3,2,6);
+stem(n,y,<span class="string">'k'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Unit impulse'</span>);</pre>
+<img src="lab2-1.png" alt="lab2-1.png">
+<p><b>Results</b></p>
+
+<footer>
+<hr>
+<a href="https://www.octave.org">Published with GNU Octave 7.1.0</a>
+</footer>
+<!--
+##### SOURCE BEGIN #####
+## Lab2 assignment
+##
+
+##
+# Code
+##
+
+#
+# Program for unit step sequence
+#
+# Enter the length of unit step sequence(N)= 10
+#
+clc;
+N=input('Enter the length of unit step sequence(N)= ');
+n=0:1:N-1;
+y=ones(1,N);
+subplot(3,2,1);
+stem(n,y,'k');
+xlabel('Time')
+ylabel('Amplitude')
+title('Unit step sequence');
+#
+# Program for unit ramp sequence
+#
+# Enter the length of unit ramp sequence(N1)= 10
+#
+N1=input('Enter the length of unit ramp sequence(N1)= ');
+n1=0:1:N1-1;
+y1=n1;
+subplot(3,2,2);
+stem(n1,y1,'k');
+xlabel('Time');
+ylabel('Amplitude');
+title('Unit ramp sequence');
+#
+# Program for sinusoidal sequence
+#
+# Enter the length of sinusoidal sequence(N2) = 3
+#
+N2=input('Enter the length of sinusoidal sequence(N2)=');
+n2=0:0.1:N2-1;
+y2=sin(2*pi*n2);
+subplot(3,2,3);
+stem(n2,y2,'k');
+xlabel('Time');
+ylabel('Amplitude');
+title('Sinusoidal sequence');
+#
+# Program for cosine sequence
+#
+# Enter the length of the cosine sequence(N3) = 3
+#
+N3=input('Enter the length of the cosine sequence(N3)=');
+n3=0:0.1:N3-1;
+y3=cos(2*pi*n3);
+subplot(3,2,4);
+stem(n3,y3,'k');
+xlabel('Time');
+ylabel('Amplitude');
+title('Cosine sequence');
+#
+# Program for exponential sequence
+#
+# Enter the length of unit step sequence(N) = 10
+#
+# Enter the value of the exponential sequence(a) = 0.5
+#
+N4=input('Enter the length of the exponential sequence(N4)= ');
+n4=0:1:N4-1;
+a=input('Enter the value of the exponential sequence(a)=');
+y4=exp(a*n4);
+subplot(3,2,5);
+stem(n4,y4,'k');
+xlabel('Time');
+ylabel('Amplitude');
+title('Exponential sequence');
+#
+# Program for unit impulse
+#
+n=-3:1:3;
+y=[zeros(1,3),ones(1,1),zeros(1,3)];
+subplot(3,2,6);
+stem(n,y,'k');
+xlabel('Time');
+ylabel('Amplitude');
+title('Unit impulse');
+##
+
+##
+# *Results*
+##
+
+##### SOURCE END #####
+-->
+</body>
+</html>
